@@ -12,7 +12,8 @@ const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  database: process.env.DB_NAME
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 3306
 });
 
 async function testDatabaseConnection() {
@@ -92,7 +93,7 @@ app.put('/edit/:id', async (req, res) => {
     } else {
       res.status(500).json({ error: 'Failed to update flashcard' });
     }
-    
+
   } catch (error) {
     console.error('Error editing flashcard:', error);
     res.status(500).send('Error editing flashcard');
