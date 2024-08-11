@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
-const port = 3001;
+const port = 3306;
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
@@ -13,8 +13,7 @@ const pool = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 3306
-});
+  port: process.env.DB_PORT})
 
 async function testDatabaseConnection() {
   try {
