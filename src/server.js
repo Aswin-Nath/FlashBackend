@@ -4,7 +4,7 @@ require('dotenv').config();
 const app = express();
 const port = 3001;
 
-app.use(cors({ origin: 'https://flashi.onrender.com/' }));
+app.use(cors({ origin: 'https://flashi.onrender.com' }));
 app.use(express.json());
 
 const mysql = require('mysql2/promise');
